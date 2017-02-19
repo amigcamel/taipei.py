@@ -5,6 +5,12 @@ import os
 from django import VERSION as DJANGO_VERSION
 from django.utils.translation import ugettext_lazy as _
 
+import dj_database_url
+
+# Make these unique, and don't share it with anybody.
+SECRET_KEY = os.environ.get('SECRET_KEY')
+NEVERCACHE_KEY = os.environ.get('NEVERCACHE_KEY')
+
 
 ######################
 # MEZZANINE SETTINGS #
@@ -145,10 +151,10 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 
 DATABASES = {
     "default": {
-        # Add "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
-        "ENGINE": "django.db.backends.",
+        # Ends with "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
+        "ENGINE": "django.db.backends.sqlite3",
         # DB name or path to database file if using sqlite3.
-        "NAME": "",
+        "NAME": "dev.db",
         # Not used with sqlite3.
         "USER": "",
         # Not used with sqlite3.
@@ -353,3 +359,8 @@ RICHTEXT_FILTERS = [
 ]
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+DATABASES['default'] = (
+    dj_database_url.config() or
+    DATABASES['default']
+)
