@@ -1,1 +1,1 @@
-web: gunicorn your_project.wsgi --log-file -
+web: gunicorn taipei_py.wsgi --log-file -
