@@ -352,3 +352,4 @@ RICHTEXT_FILTERS = [
     'mezzanine_pagedown.filters.extra'
 ]
 
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
