@@ -12,9 +12,9 @@ https://taipei-py.herokuapp.com
 
 Dependencies
 -------------
-Python 3.5.2
-Django 1.8.17
-Mezzanine 4.2.2
+Python 3.5.2  
+Django 1.8.17  
+Mezzanine 4.2.2  
 
 Installation
 -------------
